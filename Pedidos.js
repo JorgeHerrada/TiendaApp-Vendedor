@@ -17,7 +17,7 @@ import { useNavigation } from '@react-navigation/native';
 import { NavigationContainer } from '@react-navigation/native';
 
 // export default class Login extends Component {
-export default class Confirmacion extends Component {
+export default class Pedidos extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -65,20 +65,8 @@ export default class Confirmacion extends Component {
     
     // js programming for objects
     const btnClick = () => {
-        this.props.navigation.navigate("Progreso");
-        
+        this.props.navigation.navigate("Opciones");
     }
-    
-    // Display pop up alert 
-    const badLoginalert = () =>
-    Alert.alert(
-        "Login invalido",
-        "Los datos introducidos son inválidos, intenta de nuevo.",
-        [
-            { text: "OK"}
-        ]
-    );
-    
     
     return (
         <SafeAreaView style={styles.background}>
@@ -86,7 +74,7 @@ export default class Confirmacion extends Component {
                 style={styles.background}
             >
                 <View style={styles.espacioTitulo}>
-                    <Text style={styles.textoTitulo}> El resumen de tu pedido </Text>
+                    <Text style={styles.textoTitulo}> Pedidos </Text>
                 </View>
                 
                 <View style={styles.espacioProductos}>
@@ -103,7 +91,7 @@ export default class Confirmacion extends Component {
                         activeOpacity={0.7}
                         onPress={btnClick}
                     >
-                        <Text>Confirmar Orden</Text>
+                        <Text style={styles.textoFooter}>Regresar</Text>
                     </TouchableOpacity>
                 </View>
             </ImageBackground> 
@@ -161,5 +149,9 @@ const styles = StyleSheet.create({
         fontSize:20,
         fontFamily:"serif",
         color:"black",
+    },
+    textoFooter:{
+        fontSize:30,
+        fontWeight:"bold",
     },
 })

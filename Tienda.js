@@ -65,7 +65,7 @@ export default class Tienda extends Component {
     
     // js programming for objects
     const btnClick = () => {
-        this.props.navigation.navigate("Confirmacion");
+        this.props.navigation.navigate("Opciones");
     }
     
     // Display pop up alert 
@@ -102,7 +102,7 @@ export default class Tienda extends Component {
                         activeOpacity={0.7}
                         onPress={btnClick}
                     >
-                        <Text>Ordenar</Text>
+                        <Text style={styles.textoFooter}>Regresar</Text>
                     </TouchableOpacity>
                 </View>
             </ImageBackground> 
@@ -160,5 +160,9 @@ const styles = StyleSheet.create({
         fontSize:20,
         fontFamily:"serif",
         color:"black",
+    },
+    textoFooter:{
+        fontSize:30,
+        fontWeight:"bold",
     },
 })

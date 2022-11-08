@@ -17,7 +17,7 @@ import { useNavigation } from '@react-navigation/native';
 import { NavigationContainer } from '@react-navigation/native';
 
 // export default class Login extends Component {
-export default class Progreso extends Component {
+export default class Repartidores extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,21 +28,21 @@ export default class Progreso extends Component {
   }
 
   // ejecuta cada que se carga la vista
-//   componentDidMount(){
-//     let _this = this;
-//     var xhttp = new XMLHttpRequest();
-//     xhttp.onreadystatechange = function() {
-//       console.log("Petición enviada a servidor");
-//       if (this.readyState == 4 && this.status == 200) {
-//         // save data from server on JS object
-//         var datos=JSON.parse(xhttp.responseText);
-//         _this.setState({datosServer:datos}); // save object
-//         console.log("JSON recibido");
-//       }
-//     };
-//     xhttp.open("GET", "https://herradapinternet.000webhostapp.com/mostrarDatos.php", true);
-//     xhttp.send();
-//   }
+  componentDidMount(){
+    let _this = this;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      console.log("Petición enviada a servidor");
+      if (this.readyState == 4 && this.status == 200) {
+        // save data from server on JS object
+        var datos=JSON.parse(xhttp.responseText);
+        _this.setState({datosServer:datos}); // save object
+        console.log("JSON recibido");
+      }
+    };
+    xhttp.open("GET", "https://herradapinternet.000webhostapp.com/mostrarDatos.php", true);
+    xhttp.send();
+  }
 
   render() {
     
@@ -65,14 +65,7 @@ export default class Progreso extends Component {
     
     // js programming for objects
     const btnClick = () => {
-        this.props.navigation.navigate("Tienda");
-        Alert.alert(
-            "¡Orden completada!",
-            "Muchas gracias por comprar con TiendaApp",
-            [
-                { text: "OK"}
-            ]  
-        )
+        this.props.navigation.navigate("Opciones");
     }
     
     // Display pop up alert 
@@ -92,20 +85,24 @@ export default class Progreso extends Component {
                 style={styles.background}
             >
                 <View style={styles.espacioTitulo}>
-                    <Text style={styles.textoTitulo}> Tu pedido está en camino </Text>
+                    <Text style={styles.textoTitulo}> Repartidores </Text>
                 </View>
                 
                 <View style={styles.espacioProductos}>
-
+                    <FlatList
+                        data={this.state.datosServer}
+                        renderItem={celda}
+                        keyExtractor={(item,index) => index.toString()}
+                        style={styles.flatList}
+                    />
                 </View>
-
                 <View style={styles.espacioFooter}>
                     <TouchableOpacity 
                         style={styles.btnFooter}
                         activeOpacity={0.7}
                         onPress={btnClick}
                     >
-                        <Text>He recibido mi orden</Text>
+                        <Text style={styles.textoFooter}>Regresar</Text>
                     </TouchableOpacity>
                 </View>
             </ImageBackground> 
@@ -163,5 +160,9 @@ const styles = StyleSheet.create({
         fontSize:20,
         fontFamily:"serif",
         color:"black",
+    },
+    textoFooter:{
+        fontSize:30,
+        fontWeight:"bold",
     },
 })

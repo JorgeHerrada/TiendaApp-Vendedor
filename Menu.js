@@ -5,9 +5,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // pantallas que saldran en el proyecto
 import LOGIN from "./Login";
 import SIGNIN from "./SignIn";
+import OPCIONES from "./Opciones";
 import TIENDA from "./Tienda";
-import CONFIRMACION from "./Confirmacion";
-import PROGRESO from "./Progreso";
+import REPARTIDORES from "./Repartidores";
+import PEDIDOS from "./Pedidos";
 
 
 const Stack = createNativeStackNavigator();
@@ -27,18 +28,23 @@ function App() {
           options={{ headerShown: false }} // header wont show
         />
         <Stack.Screen 
+          name="Opciones" 
+          component={OPCIONES} 
+          options={{ headerShown: false }} // header wont show
+        />
+        <Stack.Screen 
           name="Tienda" 
           component={TIENDA} 
           options={{ headerShown: false }} // header wont show
         />
         <Stack.Screen 
-          name="Confirmacion" 
-          component={CONFIRMACION} 
+          name="Repartidores" 
+          component={REPARTIDORES} 
           options={{ headerShown: false }} // header wont show
         />
         <Stack.Screen 
-          name="Progreso" 
-          component={PROGRESO} 
+          name="Pedidos" 
+          component={PEDIDOS} 
           options={{ headerShown: false }} // header wont show
         />
         

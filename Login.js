@@ -29,10 +29,10 @@ export default class Login extends Component {
   render() {
     // js programming for objects
     const btnClickEntrar = () => {
-        this.props.navigation.navigate("Tienda")
+        this.props.navigation.navigate("Opciones");
     }
     const btnClickRegistro = () => {
-        this.props.navigation.navigate("SignIn")
+        this.props.navigation.navigate("SignIn");
     }
     
     // Display pop up alert 
