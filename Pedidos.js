@@ -40,7 +40,7 @@ export default class Pedidos extends Component {
         console.log("JSON recibido");
       }
     };
-    xhttp.open("GET", "https://herradapinternet.000webhostapp.com/mostrarDatos.php", true);
+    xhttp.open("GET", "http://tiendapp.freevar.com/tiendappScrips/mostrarPedidosActivos.php", true);
     xhttp.send();
   }
 
@@ -52,11 +52,14 @@ export default class Pedidos extends Component {
             <TouchableOpacity 
                 // onPress={() => getItem(item.id,item.nombre,item.codigo,item.imagen)}
             >
-                <Text style={styles.celda}>id: {item.id}</Text>
-                <Text style={styles.celda}>nombre: {item.nombre}</Text>
-                <Text style={styles.celda}>codigo: {item.codigo}</Text>
-                <Text style={styles.celda}>tarea: {item.tarea}</Text>
-                <Text style={styles.celda}>imagen URL: {item.imagen}</Text>
+                {/* id,deliveryAddress,nProducts,date,total,userID,courierID */}
+                <Text style={styles.celda}>ID: {item.id}</Text>
+                <Text style={styles.celda}>Destino: {item.deliveryAddress}</Text>
+                <Text style={styles.celda}>Productos: {item.nProducts}</Text>
+                <Text style={styles.celda}>Fecha: {item.date}</Text>
+                <Text style={styles.celda}>Total: {item.total}</Text>
+                <Text style={styles.celda}>Usuario: {item.userID}</Text>
+                <Text style={styles.celda}>Repartidor: {item.courierID}</Text>
             </TouchableOpacity>
           </View>
         )

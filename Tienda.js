@@ -40,7 +40,7 @@ export default class Tienda extends Component {
         console.log("JSON recibido");
       }
     };
-    xhttp.open("GET", "https://herradapinternet.000webhostapp.com/mostrarDatos.php", true);
+    xhttp.open("GET", "http://tiendapp.freevar.com/tiendappScrips/mostrarProductos.php", true);
     xhttp.send();
   }
 
@@ -52,11 +52,12 @@ export default class Tienda extends Component {
             <TouchableOpacity 
                 // onPress={() => getItem(item.id,item.nombre,item.codigo,item.imagen)}
             >
-                <Text style={styles.celda}>id: {item.id}</Text>
-                <Text style={styles.celda}>nombre: {item.nombre}</Text>
-                <Text style={styles.celda}>codigo: {item.codigo}</Text>
-                <Text style={styles.celda}>tarea: {item.tarea}</Text>
-                <Text style={styles.celda}>imagen URL: {item.imagen}</Text>
+                <Text style={styles.celda}>ID: {item.id}</Text>
+                <Text style={styles.celda}>Nombre: {item.name}</Text>
+                <Text style={styles.celda}>Descripcion: {item.description}</Text>
+                <Text style={styles.celda}>Foto: {item.picture}</Text>
+                <Text style={styles.celda}>Stock: {item.stock}</Text>
+                <Text style={styles.celda}>Activo: {item.active}</Text>
             </TouchableOpacity>
           </View>
         )
