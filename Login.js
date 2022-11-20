@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
         height: Dimensions.get('window').height,
     },
     btnEntrar:{
-        width:"45%",
+        width:"50%",
         height: "12%",
         alignSelf: "center",
         marginTop: 20,

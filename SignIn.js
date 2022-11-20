@@ -80,7 +80,7 @@ export default class SignIn extends Component {
                         activeOpacity={0.7}
                         onPress={btnClick}
                     > 
-                        <Text style={styles.textoBoton}> Entrar </Text>
+                        <Text style={styles.textoBoton}> Registrarme </Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.espacioFooter}>
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
         height: Dimensions.get('window').height,
     },
     btnEntrar:{
-        width:"45%",
+        width:"50%",
         height: "12%",
         alignSelf: "center",
         marginTop: 20,
