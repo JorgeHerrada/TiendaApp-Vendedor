@@ -75,8 +75,12 @@ export default class Tienda extends Component {
     
     
     // js programming for objects
-    const btnClick = () => {
+    const btnClickRegresar = () => {
         this.props.navigation.navigate("Opciones");
+    }
+
+    const btnClickAgregar = () => {
+        this.props.navigation.navigate("AltasTienda");
     }
     
     // Display pop up alert 
@@ -111,9 +115,16 @@ export default class Tienda extends Component {
                     <TouchableOpacity 
                         style={styles.btnFooter}
                         activeOpacity={0.7}
-                        onPress={btnClick}
+                        onPress={btnClickRegresar}
                     >
                         <Text style={styles.textoFooter}>Regresar</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity 
+                        style={styles.btnFooter}
+                        activeOpacity={0.7}
+                        onPress={btnClickAgregar}
+                    >
+                        <Text style={styles.textoFooter}>Agregar</Text>
                     </TouchableOpacity>
                 </View>
             </ImageBackground> 
@@ -151,11 +162,16 @@ const styles = StyleSheet.create({
     },
     espacioFooter:{
         flex:1,
-        justifyContent:"center",
-        backgroundColor:"#78D5D7"
+        backgroundColor:"#78D5D7",
+        flexDirection:"row",
+        // borderTopWidth:1,
     }, 
     btnFooter:{
+        flex:1,
+        justifyContent:"center",
         alignItems:"center",
+        // borderRightWidth:1,
+        // borderLeftWidth:1,
     },
     celdaContainer:{
         marginHorizontal:20,
@@ -176,6 +192,7 @@ const styles = StyleSheet.create({
     textoFooter:{
         fontSize:30,
         fontWeight:"bold",
+        // alignSelf:"center"
     },
     productInfo:{
         flex: 2,
