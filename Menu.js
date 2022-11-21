@@ -9,7 +9,8 @@ import OPCIONES from "./Opciones";
 import TIENDA from "./Tienda";
 import REPARTIDORES from "./Repartidores";
 import PEDIDOS from "./Pedidos";
-import ALTASTIENDA from "./AltasTienda.js";
+import ALTASTIENDA from "./AltasTienda";
+import ALTASREPARTIDORES from "./AltasRepartidores";
 
 
 const Stack = createNativeStackNavigator();
@@ -51,6 +52,11 @@ function App() {
         <Stack.Screen 
           name="AltasTienda" 
           component={ALTASTIENDA} 
+          options={{ headerShown: false }} // header wont show
+        />
+        <Stack.Screen 
+          name="AltasRepartidores" 
+          component={ALTASREPARTIDORES} 
           options={{ headerShown: false }} // header wont show
         />
         

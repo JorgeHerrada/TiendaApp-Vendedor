@@ -9,6 +9,11 @@ export default class AltasTienda extends Component {
   }
 
   render() {
+
+    const btnClickRegresar = () => {
+        this.props.navigation.navigate("Tienda");
+    }
+
     return (
         <SafeAreaView style={styles.background}>
             <ImageBackground
@@ -23,13 +28,13 @@ export default class AltasTienda extends Component {
                 </View>
 
                 <View style={styles.espacioFooter}>
-                    {/* <TouchableOpacity 
+                    <TouchableOpacity 
                         style={styles.btnFooter}
                         activeOpacity={0.7}
-                        onPress={btnClick}
+                        onPress={btnClickRegresar}
                     >
-                        <Text>He recibido mi orden</Text>
-                    </TouchableOpacity> */}
+                        <Text style={styles.textoFooter}>Regresar</Text>
+                    </TouchableOpacity>
                 </View>
             </ImageBackground> 
         </SafeAreaView>
@@ -52,14 +57,14 @@ const styles = StyleSheet.create({
     textoTitulo:{
         fontWeight:"bold",
         fontSize: 40,
-        color: "#000",
+        color: "#F7F9F9",
         textAlign: "center",
         fontFamily:"arial",
     },
     espacioTitulo:{
         flex: 2,
         justifyContent:"center",
-        backgroundColor:"#BED8D4"
+        backgroundColor:"#63D2FF"
     },
     espacioContenido:{
         flex: 7,
@@ -67,9 +72,14 @@ const styles = StyleSheet.create({
     espacioFooter:{
         flex:1,
         justifyContent:"center",
-        backgroundColor:"#78D5D7"
+        backgroundColor:"#2081C3"
     }, 
     btnFooter:{
         alignItems:"center",
+    },
+    textoFooter:{
+        fontSize:30,
+        color:"#F7F9F9",
+        fontWeight:"bold",
     },
 })

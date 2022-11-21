@@ -75,8 +75,12 @@ export default class Repartidores extends Component {
     
     
     // js programming for objects
-    const btnClick = () => {
+    const btnClickRegresar = () => {
         this.props.navigation.navigate("Opciones");
+    }
+
+    const btnClickAgregar = () => {
+        this.props.navigation.navigate("AltasRepartidores");
     }
     
     // Display pop up alert 
@@ -111,9 +115,16 @@ export default class Repartidores extends Component {
                     <TouchableOpacity 
                         style={styles.btnFooter}
                         activeOpacity={0.7}
-                        onPress={btnClick}
+                        onPress={btnClickRegresar}
                     >
                         <Text style={styles.textoFooter}>Regresar</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity 
+                        style={styles.btnFooter}
+                        activeOpacity={0.7}
+                        onPress={btnClickAgregar}
+                    >
+                        <Text style={styles.textoFooter}>Agregar</Text>
                     </TouchableOpacity>
                 </View>
             </ImageBackground> 
@@ -137,45 +148,48 @@ const styles = StyleSheet.create({
     textoTitulo:{
         fontWeight:"bold",
         fontSize: 40,
-        color: "#000",
+        color: "#F7F9F9",
         textAlign: "center",
         fontFamily:"arial",
     },
     espacioTitulo:{
         flex: 2,
         justifyContent:"center",
-        backgroundColor:"#BED8D4"
+        backgroundColor:"#63D2FF",
     },
     espacioProductos:{
         flex: 7,
     },
     espacioFooter:{
         flex:1,
-        justifyContent:"center",
-        backgroundColor:"#78D5D7"
+        backgroundColor:"#2081C3",
+        flexDirection:"row",
     }, 
     btnFooter:{
+        flex:1,
+        justifyContent:"center",
         alignItems:"center",
     },
     celdaContainer:{
         marginHorizontal:20,
         marginVertical:20,
-        borderWidth:2,
-        borderColor:"black",
+        // borderWidth:2,
+        // borderColor:"black",
         padding:10,
         borderRadius:15,
         flex:1,
-        backgroundColor: "#FFE3E1",
+        backgroundColor: "#78D5D7",
         flexDirection:"row",
     },
     celda:{
-        fontSize:20,
+        fontSize:15,
         fontFamily:"serif",
-        color:"black",
+        color:"#F7F9F9",
     },
     textoFooter:{
         fontSize:30,
         fontWeight:"bold",
+        color:"#F7F9F9",
     },
     productInfo:{
         flex: 2,

@@ -32,7 +32,7 @@ export default class Opciones extends Component {
     // js programming for objects
     const btnClick = (opcion) => {
         console.log("Boton presionado: " + this.state.opciones[0]);
-        // this.props.navigation.navigate(this.state.opciones[opcion]);
+        this.props.navigation.navigate("Login");
     }
     
     return (
@@ -50,7 +50,7 @@ export default class Opciones extends Component {
                         activeOpacity={0.7}
                         onPress={() => this.props.navigation.navigate(this.state.opciones[0])}
                     >
-                        <Text style={styles.textoOpcion}>Manejar Tienda</Text>
+                        <Text style={styles.textoOpcion}>Tienda</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity
@@ -58,7 +58,7 @@ export default class Opciones extends Component {
                         activeOpacity={0.7}
                         onPress={() => this.props.navigation.navigate(this.state.opciones[1])}
                     >
-                        <Text style={styles.textoOpcion}>Manejar Repartidores</Text>
+                        <Text style={styles.textoOpcion}>Repartidores</Text>
                     </TouchableOpacity>
                     
                     <TouchableOpacity
@@ -66,18 +66,18 @@ export default class Opciones extends Component {
                         activeOpacity={0.7}
                         onPress={() => this.props.navigation.navigate(this.state.opciones[2])}
                     >
-                        <Text style={styles.textoOpcion}>Ver Pedidos</Text>
+                        <Text style={styles.textoOpcion}>Pedidos</Text>
                     </TouchableOpacity>
                 </View>
 
                 <View style={styles.espacioFooter}>
-                    {/* <TouchableOpacity 
+                    <TouchableOpacity 
                         style={styles.btnFooter}
                         activeOpacity={0.7}
                         onPress={btnClick}
                     >
-                        <Text>He recibido mi orden</Text>
-                    </TouchableOpacity> */}
+                        <Text  style={styles.textoFooter}>Regresar</Text>
+                    </TouchableOpacity>
                 </View>
             </ImageBackground> 
         </SafeAreaView>
@@ -99,15 +99,15 @@ const styles = StyleSheet.create({
     },
     textoTitulo:{
         fontWeight:"bold",
-        fontSize: 40,
-        color: "#000",
+        fontSize: 50,
+        color: "#F7F9F9",
         textAlign: "center",
         fontFamily:"arial",
     },
     espacioTitulo:{
         flex: 2,
         justifyContent:"center",
-        backgroundColor:"#BED8D4"
+        backgroundColor:"#63D2FF"
     },
     espacioProductos:{
         flex: 7,
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     espacioFooter:{
         flex:1,
         justifyContent:"center",
-        backgroundColor:"#78D5D7"
+        backgroundColor:"#2081C3"
     }, 
     btnFooter:{
         alignItems:"center",
@@ -126,14 +126,21 @@ const styles = StyleSheet.create({
         alignItems:"center",
         marginHorizontal:20,
         marginVertical:20,
-        borderWidth:2,
+        borderWidth:0,
         borderColor:"black",
         padding:10,
         borderRadius:15,
-        backgroundColor: "#FFE3E1",
+        backgroundColor: "#78D5D7",
     },
     textoOpcion:{
+        fontSize:40,
+        color:"#F7F9F9",
+        fontWeight:"bold",
+    },
+    textoFooter:{
         fontSize:30,
-    }
+        color:"#F7F9F9",
+        fontWeight:"bold",
+    },
 
 })

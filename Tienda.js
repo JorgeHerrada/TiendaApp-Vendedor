@@ -148,21 +148,21 @@ const styles = StyleSheet.create({
     textoTitulo:{
         fontWeight:"bold",
         fontSize: 40,
-        color: "#000",
+        color: "#F7F9F9",
         textAlign: "center",
         fontFamily:"arial",
     },
     espacioTitulo:{
         flex: 2,
         justifyContent:"center",
-        backgroundColor:"#BED8D4"
+        backgroundColor:"#63D2FF"
     },
     espacioProductos:{
         flex: 7,
     },
     espacioFooter:{
         flex:1,
-        backgroundColor:"#78D5D7",
+        backgroundColor:"#2081C3",
         flexDirection:"row",
         // borderTopWidth:1,
     }, 
@@ -176,23 +176,24 @@ const styles = StyleSheet.create({
     celdaContainer:{
         marginHorizontal:20,
         marginVertical:20,
-        borderWidth:2,
-        borderColor:"black",
+        // borderWidth:2,
+        // borderColor:"black",
         padding:10,
         borderRadius:15,
         flex:1,
-        backgroundColor: "#FFE3E1",
+        backgroundColor: "#78D5D7",
         flexDirection:'row',
     },
     celda:{
-        fontSize:20,
+        fontSize:15,
         fontFamily:"serif",
-        color:"black",
+        color:"#F7F9F9",
+        // fontWeight:"bold",
     },
     textoFooter:{
         fontSize:30,
         fontWeight:"bold",
-        // alignSelf:"center"
+        color:"#F7F9F9"
     },
     productInfo:{
         flex: 2,

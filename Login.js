@@ -86,8 +86,8 @@ export default class Login extends Component {
                         activeOpacity={0.7}
                         onPress={btnClickRegistro}
                     >
-                        <Text>¿Aún no tienes una cuenta?</Text>
-                        <Text style={{fontWeight:"bold"}}>¡Regístrate aquí!</Text>
+                        <Text style={styles.textoFooter1}>¿Aún no tienes una cuenta?</Text>
+                        <Text style={styles.textoFooter2}>¡Regístrate aquí!</Text>
                     </TouchableOpacity>
                 </View>
             </ImageBackground> 
@@ -113,8 +113,8 @@ const styles = StyleSheet.create({
         height: "12%",
         alignSelf: "center",
         marginTop: 20,
-        backgroundColor:"#2081C3",
-        borderWidth:2,
+        backgroundColor:"#78D5D7",
+        // borderWidth:2,
         borderRadius: 8,
         justifyContent:"center",
         alignItems:"center",        
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     textoTitulo:{
         fontWeight:"bold",
         fontSize: 40,
-        color: "#000",
+        color: "black",
         textAlign: "center",
         fontFamily:"arial",
     },
@@ -150,9 +150,19 @@ const styles = StyleSheet.create({
     footer:{
         flex:0.2,
         justifyContent:"center",
-        backgroundColor:"#78D5D7"
+        backgroundColor:"#2081C3"
     }, 
     btnFooter:{
         alignItems:"center",
+    },
+    textoFooter1:{
+        fontSize:15,
+        color:"#F7F9F9",
+        // fontWeight:"bold",
+    },
+    textoFooter2:{
+        fontSize:15,
+        color:"#F7F9F9",
+        fontWeight:"bold",
     }
 })
