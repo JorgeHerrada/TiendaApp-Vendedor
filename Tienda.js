@@ -9,7 +9,8 @@ import {
     Alert,
     SafeAreaView,
     Dimensions,
-    FlatList
+    FlatList,
+    Image,
 } from 'react-native';
 
 // importar para navegar entre pantallas
@@ -48,18 +49,27 @@ export default class Tienda extends Component {
     
     const celda = ({item}) => {
         return(
-          <View style={styles.celdaContainer}>
             <TouchableOpacity 
-                // onPress={() => getItem(item.id,item.nombre,item.codigo,item.imagen)}
-            >
-                <Text style={styles.celda}>ID: {item.id}</Text>
-                <Text style={styles.celda}>Nombre: {item.name}</Text>
-                <Text style={styles.celda}>Descripcion: {item.description}</Text>
-                <Text style={styles.celda}>Foto: {item.picture}</Text>
-                <Text style={styles.celda}>Stock: {item.stock}</Text>
-                <Text style={styles.celda}>Activo: {item.active}</Text>
+                    // onPress={() => getItem(item.id,item.nombre,item.codigo,item.imagen)}
+                >
+                <View style={styles.celdaContainer}>
+                    <View style={styles.productInfo}>
+                        <Text style={styles.celda}>ID: {item.id}</Text>
+                        <Text style={styles.celda}>Nombre: {item.name}</Text>
+                        <Text style={styles.celda}>Descripcion: {item.description}</Text>
+                        {/* <Text style={styles.celda}>Foto: {item.picture}</Text> */}
+                        <Text style={styles.celda}>Stock: {item.stock}</Text>
+                        <Text style={styles.celda}>Activo: {item.active}</Text>
+                    </View>
+                    <View style={styles.fotoContainer}>
+                        <Image
+                            style={{width:100,height:100,borderRadius:8}}
+                            source={{uri:item.picture}}
+                            // source={require(this.props.route.params.imagen)}
+                        />
+                    </View>
+                </View>
             </TouchableOpacity>
-          </View>
         )
       }
     
@@ -156,6 +166,7 @@ const styles = StyleSheet.create({
         borderRadius:15,
         flex:1,
         backgroundColor: "#FFE3E1",
+        flexDirection:'row',
     },
     celda:{
         fontSize:20,
@@ -166,4 +177,12 @@ const styles = StyleSheet.create({
         fontSize:30,
         fontWeight:"bold",
     },
+    productInfo:{
+        flex: 2,
+    },
+    fotoContainer:{
+        flex: 1,
+        justifyContent:"center",
+        alignContent:"center",
+    }
 })
