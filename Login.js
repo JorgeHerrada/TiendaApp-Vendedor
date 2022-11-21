@@ -60,10 +60,12 @@ export default class Login extends Component {
                         style={styles.input}
                         placeholder="Correo"
                         keyboardType='numeric'
+                        placeholderTextColor={"black"}
                         // get input and save in var username
                         onChangeText={username => this.setState({username})}
-                    />
+                        />
                     <TextInput 
+                        placeholderTextColor={"black"}
                         placeholder="Contraseña"
                         style={styles.input}
                         secureTextEntry={true}
@@ -123,6 +125,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginHorizontal: 30,
         borderRadius: 8,
+        color:"black",
     },
     textoTitulo:{
         fontWeight:"bold",

@@ -59,16 +59,19 @@ export default class SignIn extends Component {
                         style={styles.input}
                         placeholder="Correo"
                         keyboardType='numeric'
+                        placeholderTextColor={"black"}
                         // get input and save in var username
                         onChangeText={username => this.setState({username})}
-                    />
+                        />
                     <TextInput 
+                        placeholderTextColor={"black"}
                         placeholder="Contraseña"
                         style={styles.input}
                         secureTextEntry={true}
                         onChangeText={password => this.setState({password})}
-                    />
+                        />
                     <TextInput 
+                        placeholderTextColor={"black"}
                         placeholder="Confirma tu contraseña"
                         style={styles.input}
                         secureTextEntry={true}
