@@ -22,8 +22,7 @@ export default class ModificacionesRepartidores extends Component {
     super(props);
     this.state = {
         // variables definition
-        datosServer:"",
-        contadorArticulos:0,
+        s:0,
     };
   }
 
@@ -51,20 +50,20 @@ export default class ModificacionesRepartidores extends Component {
                     "El repartidor se elimindo con éxito.",
                     [{ text: "OK"}]
                 );
-                _this.props.navigation.navigate("Tienda");
+                _this.props.navigation.navigate("Repartidores");
             }else{
                 Alert.alert(
                     "¡Error!",
                     "No se ha logrado eliminar el repartidor.",
                     [{ text: "OK"}]
                 );
-                _this.props.navigation.navigate("Tienda");
+                _this.props.navigation.navigate("Repartidores");
                 console.log(xhttp.responseText);
             }
         }
         };
-        xhttp.open("GET", "http://tiendapp.freevar.com/tiendappScrips/bajas.php?id=" + _this.props.route.params.datosServer["id"] + "&table=products", true);
-        console.log("http://tiendapp.freevar.com/tiendappScrips/bajas.php?id=" + _this.props.route.params.datosServer["id"] + "&table=products");
+        xhttp.open("GET", "http://tiendapp.freevar.com/tiendappScrips/bajas.php?id=" + _this.props.route.params.id + "&table=products", true);
+        console.log("http://tiendapp.freevar.com/tiendappScrips/bajas.php?id=" + _this.props.route.params.id + "&table=couriers");
         xhttp.send();
     }
     
@@ -81,14 +80,13 @@ export default class ModificacionesRepartidores extends Component {
                 </View>
                 
                 <View style={styles.espacioProductos}>
-                    <Text>ID: {this.props.route.params.datosServer["id"]}</Text>
-                    <Text>Nombre: {this.props.route.params.datosServer["name"]}</Text>
-                    <Text>Apellido Paterno: {this.props.route.params.datosServer["lastName1"]}</Text>
-                    <Text>Apellido Materno: {this.props.route.params.datosServer["lastName2"]}</Text>
-                    <Text>Correo: {this.props.route.params.datosServer["email"]}</Text>
-                    <Text>URL de foto: {this.props.route.params.datosServer["picture"]}</Text>
-                    <Text>Fecha de registro: {this.props.route.params.datosServer["signInDate"]}</Text>
-                    <Text>¿Se encuentra activo?: {this.props.route.params.datosServer["active"]}</Text>
+                    <Text>ID: {this.props.route.params.id}</Text>
+                    <Text>Nombre: {this.props.route.params.name}</Text>
+                    <Text>Apellido Paterno: {this.props.route.params.lastName1}</Text>
+                    <Text>Apellido Materno: {this.props.route.params.lastName2}</Text>
+                    <Text>Correo: {this.props.route.params.email}</Text>
+                    <Text>URL de foto: {this.props.route.params.picture}</Text>
+                    <Text>¿Se encuentra activo?: {this.props.route.params.active}</Text>
                 </View>
                 <View style={styles.espacioFooter}>
                     <TouchableOpacity 
