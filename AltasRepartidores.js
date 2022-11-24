@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TextInput, Dimensions, SafeAreaView, ImageBackground, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Dimensions, SafeAreaView, ImageBackground, TouchableOpacity, Alert } from 'react-native';
 
 export default class AltasRepartidores extends Component {
   constructor(props) {
     super(props);
     this.state = {
+        email:"",
+        password:"",
+        name:"",
+        lastName1:"",
+        lastName2:"",
+        // signInDate:"",
+        picture:"",
+        active:"",
     };
   }
 
@@ -13,7 +21,39 @@ export default class AltasRepartidores extends Component {
     const btnClickRegresar = () => {
         this.props.navigation.navigate("Repartidores");
     }
-
+    const btnClickAgregar = () => {
+        let _this = this;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            console.log("Alta enviada al servidor");
+            if (this.readyState == 4 && this.status == 200) {
+                console.log("Respuesta: " + xhttp.responseText);
+                if(xhttp.responseText == "1"){
+                    // desplegar alerta
+                    Alert.alert(
+                        "Alta Exitosa",
+                        "El repartidor se ha dado de alta con éxito. Puedes editarlo en el menú 'Repartidores'.",
+                        [{ text: "OK"}]
+                    );
+                    _this.props.navigation.navigate("Repartidores");
+                }
+                else{
+                    // desplegar alerta
+                    Alert.alert(
+                        "¡Error!",
+                        "No se ha logrado dar de alta al repartidor, asegurate de llenar los campos correctamente.",
+                        [{ text: "OK"}]
+                    );
+                    console.log("No se pudo completar la insecion en la DB.");
+                }
+                
+            
+            }
+        };
+        xhttp.open("GET", "http://tiendapp.freevar.com/tiendappScrips/altasRepartidores.php?email="+this.state.email+"&password="+this.state.password+"&name="+this.state.name+"&lastName1="+this.state.lastName1+"&lastName2="+this.state.lastName2+"&picture="+this.state.picture+"&active="+this.state.active, true);
+        xhttp.send();
+    }
+    
     return (
         <SafeAreaView style={styles.background}>
             <ImageBackground
@@ -24,7 +64,49 @@ export default class AltasRepartidores extends Component {
                 </View>
                 
                 <View style={styles.espacioContenido}>
-                    
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Email"
+                        placeholderTextColor={"black"}
+                        // get input and save in var username
+                        onChangeText={email => this.setState({email})}
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Contraseña"
+                        placeholderTextColor={"black"}
+                        secureTextEntry={true}
+                        // get input and save in var username
+                        onChangeText={password => this.setState({password})}
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Nombre"
+                        placeholderTextColor={"black"}
+                        // get input and save in var username
+                        onChangeText={name => this.setState({name})}
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Apellido Paterno"
+                        placeholderTextColor={"black"}
+                        // get input and save in var username
+                        onChangeText={lastName1 => this.setState({lastName1})}
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Apellido Materno"
+                        placeholderTextColor={"black"}
+                        // get input and save in var username
+                        onChangeText={lastName2 => this.setState({lastName2})}
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Foto"
+                        placeholderTextColor={"black"}
+                        // get input and save in var username
+                        onChangeText={picture => this.setState({picture})}
+                    />
                 </View>
 
                 <View style={styles.espacioFooter}>
@@ -34,6 +116,13 @@ export default class AltasRepartidores extends Component {
                         onPress={btnClickRegresar}
                     >
                         <Text style={styles.textoFooter}>Regresar</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity 
+                        style={styles.btnFooter}
+                        activeOpacity={0.7}
+                        onPress={btnClickAgregar}
+                    >
+                        <Text style={styles.textoFooter}>Guardar</Text>
                     </TouchableOpacity>
                 </View>
             </ImageBackground> 
@@ -71,15 +160,25 @@ const styles = StyleSheet.create({
     },
     espacioFooter:{
         flex:1,
-        justifyContent:"center",
-        backgroundColor:"#2081C3"
+        backgroundColor:"#2081C3",
+        flexDirection:"row",
+        // justifyContent:"center",
     }, 
     btnFooter:{
+        flex:1,
+        justifyContent:"center",
         alignItems:"center",
     },
     textoFooter:{
         fontSize:30,
         color:"#F7F9F9",
         fontWeight:"bold",
+    },
+    input:{
+        borderWidth: 2,
+        fontSize: 25,
+        marginTop: 10,
+        marginHorizontal: 30,
+        borderRadius: 8,
     },
 })

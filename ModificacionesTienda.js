@@ -9,7 +9,6 @@ import {
     Alert,
     SafeAreaView,
     Dimensions,
-    FlatList,
     Image,
 } from 'react-native';
 
@@ -18,7 +17,7 @@ import { useNavigation } from '@react-navigation/native';
 import { NavigationContainer } from '@react-navigation/native';
 
 // export default class Login extends Component {
-export default class Repartidores extends Component {
+export default class ModificacionesTienda extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,62 +27,48 @@ export default class Repartidores extends Component {
     };
   }
 
-  // ejecuta cada que se carga la vista
-  componentDidMount(){
-    let _this = this;
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      console.log("Petición enviada a servidor");
-      if (this.readyState == 4 && this.status == 200) {
-        // save data from server on JS object
-        var datos=JSON.parse(xhttp.responseText);
-        _this.setState({datosServer:datos}); // save object
-        console.log("JSON recibido");
-      }
-    };
-    xhttp.open("GET", "http://tiendapp.freevar.com/tiendappScrips/mostrarRepartidores.php", true);
-    xhttp.send();
-  }
+  
 
   render() {
     
-    const celda = ({item}) => {
-        return(
-            <TouchableOpacity 
-            onPress={() => this.props.navigation.navigate("ModificacionesRepartidores",{datosServer:this.state.datosServer[item.id-1]})}
-            >
-                <View style={styles.celdaContainer}>
-                    <View style={styles.productInfo}>
-                        {/* id,email,name,lastName1,lastName2,picture,active */}
-                        <Text style={styles.celda}>id: {item.id}</Text>
-                        <Text style={styles.celda}>Email: {item.email}</Text>
-                        <Text style={styles.celda}>Nombre: {item.name + " " + item.lastName1 + " " + item.lastName2}</Text>
-                        {/* <Text style={styles.celda}>Foto: {item.picture}</Text> */}
-                        <Text style={styles.celda}>Activo: {item.active}</Text>
-                    </View>
-                    <View style={styles.fotoContainer}>
-                        <Image
-                            style={{width:100,height:100,borderRadius:8}}
-                            source={{uri:item.picture}}
-                            // source={require(this.props.route.params.imagen)}
-                        />
-                    </View>
-                </View>
-            </TouchableOpacity>
-        )
-      }
-    
+      
     
     // js programming for objects
     const btnClickRegresar = () => {
-        this.props.navigation.navigate("Opciones");
+        this.props.navigation.navigate("Tienda");
     }
 
-    const btnClickAgregar = () => {
-        this.props.navigation.navigate("AltasRepartidores");
+    const btnClickEliminar = () => {
+        let _this = this;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        console.log("Petición enviada a servidor");
+        if (this.readyState == 4 && this.status == 200) {
+            if (xhttp.responseText != "0"){
+                console.log("Registro eliminado");
+                Alert.alert(
+                    "Eliminación Exitosa",
+                    "El producto se ha eliminado con éxito.",
+                    [{ text: "OK"}]
+                );
+                _this.props.navigation.navigate("Tienda");
+            }else{
+                Alert.alert(
+                    "¡Error!",
+                    "No se ha logrado dar de eliminar el producto.",
+                    [{ text: "OK"}]
+                );
+                _this.props.navigation.navigate("Tienda");
+                console.log(xhttp.responseText);
+            }
+        }
+        };
+        xhttp.open("GET", "http://tiendapp.freevar.com/tiendappScrips/bajas.php?id=" + _this.props.route.params.datosServer["id"] + "&table=products", true);
+        console.log("http://tiendapp.freevar.com/tiendappScrips/bajas.php?id=" + _this.props.route.params.datosServer["id"] + "&table=products");
+        xhttp.send();
     }
     
-   
+    
     
     
     return (
@@ -92,16 +77,16 @@ export default class Repartidores extends Component {
                 style={styles.background}
             >
                 <View style={styles.espacioTitulo}>
-                    <Text style={styles.textoTitulo}> Repartidores </Text>
+                    <Text style={styles.textoTitulo}> Detalles del Producto </Text>
                 </View>
                 
                 <View style={styles.espacioProductos}>
-                    <FlatList
-                        data={this.state.datosServer}
-                        renderItem={celda}
-                        keyExtractor={(item,index) => index.toString()}
-                        style={styles.flatList}
-                    />
+                    <Text>ID: {this.props.route.params.datosServer["id"]}</Text>
+                    <Text>Nombre: {this.props.route.params.datosServer["name"]}</Text>
+                    <Text>Descripcion: {this.props.route.params.datosServer["description"]}</Text>
+                    <Text>URL de foto: {this.props.route.params.datosServer["picture"]}</Text>
+                    <Text>Existencias: {this.props.route.params.datosServer["stock"]}</Text>
+                    <Text>Estatus: {this.props.route.params.datosServer["active"]}</Text>
                 </View>
                 <View style={styles.espacioFooter}>
                     <TouchableOpacity 
@@ -114,9 +99,9 @@ export default class Repartidores extends Component {
                     <TouchableOpacity 
                         style={styles.btnFooter}
                         activeOpacity={0.7}
-                        onPress={btnClickAgregar}
+                        onPress={btnClickEliminar}
                     >
-                        <Text style={styles.textoFooter}>Agregar</Text>
+                        <Text style={styles.textoFooter}>Eliminar</Text>
                     </TouchableOpacity>
                 </View>
             </ImageBackground> 
@@ -147,7 +132,7 @@ const styles = StyleSheet.create({
     espacioTitulo:{
         flex: 2,
         justifyContent:"center",
-        backgroundColor:"#63D2FF",
+        backgroundColor:"#63D2FF"
     },
     espacioProductos:{
         flex: 7,
@@ -156,11 +141,14 @@ const styles = StyleSheet.create({
         flex:1,
         backgroundColor:"#2081C3",
         flexDirection:"row",
+        // borderTopWidth:1,
     }, 
     btnFooter:{
         flex:1,
         justifyContent:"center",
         alignItems:"center",
+        // borderRightWidth:1,
+        // borderLeftWidth:1,
     },
     celdaContainer:{
         marginHorizontal:20,
@@ -171,17 +159,18 @@ const styles = StyleSheet.create({
         borderRadius:15,
         flex:1,
         backgroundColor: "#78D5D7",
-        flexDirection:"row",
+        flexDirection:'row',
     },
     celda:{
         fontSize:15,
         fontFamily:"serif",
         color:"#F7F9F9",
+        // fontWeight:"bold",
     },
     textoFooter:{
         fontSize:30,
         fontWeight:"bold",
-        color:"#F7F9F9",
+        color:"#F7F9F9"
     },
     productInfo:{
         flex: 2,

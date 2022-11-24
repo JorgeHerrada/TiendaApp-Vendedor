@@ -39,6 +39,7 @@ export default class Tienda extends Component {
         var datos=JSON.parse(xhttp.responseText);
         _this.setState({datosServer:datos}); // save object
         console.log("JSON recibido");
+        // console.log(_this.state.datosServer);
       }
     };
     xhttp.open("GET", "http://tiendapp.freevar.com/tiendappScrips/mostrarProductos.php", true);
@@ -50,8 +51,8 @@ export default class Tienda extends Component {
     const celda = ({item}) => {
         return(
             <TouchableOpacity 
-                    // onPress={() => getItem(item.id,item.nombre,item.codigo,item.imagen)}
-                >
+                onPress={() => this.props.navigation.navigate("ModificacionesTienda",{datosServer:this.state.datosServer[item.id-2]})}
+            >
                 <View style={styles.celdaContainer}>
                     <View style={styles.productInfo}>
                         <Text style={styles.celda}>ID: {item.id}</Text>
@@ -82,18 +83,7 @@ export default class Tienda extends Component {
     const btnClickAgregar = () => {
         this.props.navigation.navigate("AltasTienda");
     }
-    
-    // Display pop up alert 
-    const badLoginalert = () =>
-    Alert.alert(
-        "Login invalido",
-        "Los datos introducidos son inválidos, intenta de nuevo.",
-        [
-            { text: "OK"}
-        ]
-    );
-    
-    
+        
     return (
         <SafeAreaView style={styles.background}>
             <ImageBackground

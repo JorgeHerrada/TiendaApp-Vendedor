@@ -44,7 +44,7 @@ export default class Opciones extends Component {
                     <Text style={styles.textoTitulo}> ¡Bienvenido! </Text>
                 </View>
                 
-                <View style={styles.espacioProductos}>
+                <View style={styles.espacioContenido}>
                     <TouchableOpacity
                         style={styles.botonOpciones}
                         activeOpacity={0.7}
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         backgroundColor:"#63D2FF"
     },
-    espacioProductos:{
+    espacioContenido:{
         flex: 7,
     },
     espacioFooter:{

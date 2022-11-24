@@ -11,6 +11,9 @@ import REPARTIDORES from "./Repartidores";
 import PEDIDOS from "./Pedidos";
 import ALTASTIENDA from "./AltasTienda";
 import ALTASREPARTIDORES from "./AltasRepartidores";
+import MODIFICACIONESTIENDA from "./ModificacionesTienda";
+import MODIFICACIONESREPARTIFORES from "./ModificacionesRepartidores";
+import ModificacionesRepartidores from './ModificacionesRepartidores';
 
 
 const Stack = createNativeStackNavigator();
@@ -57,6 +60,16 @@ function App() {
         <Stack.Screen 
           name="AltasRepartidores" 
           component={ALTASREPARTIDORES} 
+          options={{ headerShown: false }} // header wont show
+        />
+        <Stack.Screen 
+          name="ModificacionesTienda" 
+          component={MODIFICACIONESTIENDA} 
+          options={{ headerShown: false }} // header wont show
+        />
+        <Stack.Screen 
+          name="ModificacionesRepartidores" 
+          component={MODIFICACIONESREPARTIFORES} 
           options={{ headerShown: false }} // header wont show
         />
         
