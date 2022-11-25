@@ -51,7 +51,7 @@ export default class ModificacionesTienda extends Component {
                     "El producto se ha eliminado con éxito.",
                     [{ text: "OK"}]
                 );
-                _this.props.navigation.navigate("Tienda");
+                _this.props.navigation.navigate("Opciones");
             }else{
                 Alert.alert(
                     "¡Error!",
@@ -63,8 +63,8 @@ export default class ModificacionesTienda extends Component {
             }
         }
         };
-        xhttp.open("GET", "http://tiendapp.freevar.com/tiendappScrips/bajas.php?id=" + _this.props.route.params.datosServer["id"] + "&table=products", true);
-        console.log("http://tiendapp.freevar.com/tiendappScrips/bajas.php?id=" + _this.props.route.params.datosServer["id"] + "&table=products");
+        xhttp.open("GET", "http://tiendapp.freevar.com/tiendappScrips/bajas.php?id=" + _this.props.route.params.id + "&table=products", true);
+        console.log("http://tiendapp.freevar.com/tiendappScrips/bajas.php?id=" + _this.props.route.params.id + "&table=products");
         xhttp.send();
     }
     
@@ -81,12 +81,13 @@ export default class ModificacionesTienda extends Component {
                 </View>
                 
                 <View style={styles.espacioProductos}>
-                    <Text>ID: {this.props.route.params.datosServer["id"]}</Text>
-                    <Text>Nombre: {this.props.route.params.datosServer["name"]}</Text>
-                    <Text>Descripcion: {this.props.route.params.datosServer["description"]}</Text>
-                    <Text>URL de foto: {this.props.route.params.datosServer["picture"]}</Text>
-                    <Text>Existencias: {this.props.route.params.datosServer["stock"]}</Text>
-                    <Text>Estatus: {this.props.route.params.datosServer["active"]}</Text>
+                    <Text>ID: {this.props.route.params.id}</Text>
+                    <Text>Nombre: {this.props.route.params.name}</Text>
+                    <Text>Descripcion: {this.props.route.params.description}</Text>
+                    <Text>URL de foto: {this.props.route.params.picture}</Text>
+                    <Text>Precio: {this.props.route.params.price}</Text>
+                    <Text>Existencias: {this.props.route.params.stock}</Text>
+                    <Text>Estatus: {this.props.route.params.active}</Text>
                 </View>
                 <View style={styles.espacioFooter}>
                     <TouchableOpacity 

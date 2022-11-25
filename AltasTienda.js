@@ -33,7 +33,7 @@ export default class AltasTienda extends Component {
                         "El producto se ha agregado con éxito a la tienda. Puedes editarlo en el menú 'Tienda'.",
                         [{ text: "OK"}]
                     );
-                    _this.props.navigation.navigate("Tienda");
+                    _this.props.navigation.navigate("Opciones");
                 }
                 else{
                     // desplegar alerta

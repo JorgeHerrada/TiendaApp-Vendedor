@@ -35,7 +35,7 @@ export default class AltasRepartidores extends Component {
                         "El repartidor se ha dado de alta con éxito. Puedes editarlo en el menú 'Repartidores'.",
                         [{ text: "OK"}]
                     );
-                    _this.props.navigation.navigate("Repartidores");
+                    _this.props.navigation.navigate("Opciones");
                 }
                 else{
                     // desplegar alerta

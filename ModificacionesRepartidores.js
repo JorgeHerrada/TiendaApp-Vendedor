@@ -47,23 +47,23 @@ export default class ModificacionesRepartidores extends Component {
                 console.log("Registro eliminado");
                 Alert.alert(
                     "Eliminación Exitosa",
-                    "El repartidor se elimindo con éxito.",
+                    "El repartidor se ha eliminado con éxito.",
                     [{ text: "OK"}]
                 );
-                _this.props.navigation.navigate("Repartidores");
+                _this.props.navigation.navigate("Opciones");
             }else{
                 Alert.alert(
                     "¡Error!",
                     "No se ha logrado eliminar el repartidor.",
                     [{ text: "OK"}]
                 );
-                _this.props.navigation.navigate("Repartidores");
+                _this.props.navigation.navigate("Opciones");
                 console.log(xhttp.responseText);
             }
         }
         };
-        xhttp.open("GET", "http://tiendapp.freevar.com/tiendappScrips/bajas.php?id=" + _this.props.route.params.id + "&table=products", true);
-        console.log("http://tiendapp.freevar.com/tiendappScrips/bajas.php?id=" + _this.props.route.params.id + "&table=couriers");
+        xhttp.open("GET", "http://tiendapp.freevar.com/tiendappScrips/bajas.php?id=" + _this.props.route.params.id + "&table=couriers", true);
+        // console.log("http://tiendapp.freevar.com/tiendappScrips/bajas.php?id=" + _this.props.route.params.id + "&table=couriers");
         xhttp.send();
     }
     
