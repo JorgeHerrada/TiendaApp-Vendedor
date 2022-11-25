@@ -80,13 +80,19 @@ export default class ModificacionesRepartidores extends Component {
                 </View>
                 
                 <View style={styles.espacioProductos}>
-                    <Text>ID: {this.props.route.params.id}</Text>
-                    <Text>Nombre: {this.props.route.params.name}</Text>
-                    <Text>Apellido Paterno: {this.props.route.params.lastName1}</Text>
-                    <Text>Apellido Materno: {this.props.route.params.lastName2}</Text>
-                    <Text>Correo: {this.props.route.params.email}</Text>
-                    <Text>URL de foto: {this.props.route.params.picture}</Text>
-                    <Text>¿Se encuentra activo?: {this.props.route.params.active}</Text>
+                    <Text style={styles.textoContenido}>ID: {this.props.route.params.id}</Text>
+                    <Text style={styles.textoContenido}>Nombre: {this.props.route.params.name}</Text>
+                    <Text style={styles.textoContenido}>Apellido Paterno: {this.props.route.params.lastName1}</Text>
+                    <Text style={styles.textoContenido}>Apellido Materno: {this.props.route.params.lastName2}</Text>
+                    <Text style={styles.textoContenido}>Correo: {this.props.route.params.email}</Text>
+                    <Text style={styles.textoContenido}>¿Se encuentra activo?: {this.props.route.params.active}</Text>
+                    <View style={styles.fotoContainer}>
+                        <Image
+                            style={{flex:1, height:"80%",width:"80%", borderRadius:8, margin:10,}}
+                            source={{uri:this.props.route.params.picture}}
+                            // source={require(this.props.route.params.imagen)}
+                        />
+                    </View>
                 </View>
                 <View style={styles.espacioFooter}>
                     <TouchableOpacity 
@@ -136,6 +142,8 @@ const styles = StyleSheet.create({
     },
     espacioProductos:{
         flex: 7,
+        marginVertical:5,
+        marginHorizontal:10,
     },
     espacioFooter:{
         flex:1,
@@ -150,23 +158,6 @@ const styles = StyleSheet.create({
         // borderRightWidth:1,
         // borderLeftWidth:1,
     },
-    celdaContainer:{
-        marginHorizontal:20,
-        marginVertical:20,
-        // borderWidth:2,
-        // borderColor:"black",
-        padding:10,
-        borderRadius:15,
-        flex:1,
-        backgroundColor: "#78D5D7",
-        flexDirection:'row',
-    },
-    celda:{
-        fontSize:15,
-        fontFamily:"serif",
-        color:"#F7F9F9",
-        // fontWeight:"bold",
-    },
     textoFooter:{
         fontSize:30,
         fontWeight:"bold",
@@ -175,9 +166,16 @@ const styles = StyleSheet.create({
     productInfo:{
         flex: 2,
     },
-    fotoContainer:{
+    textoContenido:{
+        fontSize: 23,
+        color:"black",
+        margin:2,
         flex: 1,
+    },
+    fotoContainer:{
+        flex:7,
+        alignItems:"center",
         justifyContent:"center",
-        alignContent:"center",
     }
+
 })

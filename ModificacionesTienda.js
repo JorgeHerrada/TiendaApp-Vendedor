@@ -81,13 +81,19 @@ export default class ModificacionesTienda extends Component {
                 </View>
                 
                 <View style={styles.espacioProductos}>
-                    <Text>ID: {this.props.route.params.id}</Text>
-                    <Text>Nombre: {this.props.route.params.name}</Text>
-                    <Text>Descripcion: {this.props.route.params.description}</Text>
-                    <Text>URL de foto: {this.props.route.params.picture}</Text>
-                    <Text>Precio: {this.props.route.params.price}</Text>
-                    <Text>Existencias: {this.props.route.params.stock}</Text>
-                    <Text>Estatus: {this.props.route.params.active}</Text>
+                    <Text style={styles.textoContenido}>ID: {this.props.route.params.id}</Text>
+                    <Text style={styles.textoContenido}>Nombre: {this.props.route.params.name}</Text>
+                    <Text style={styles.textoContenido}>Descripcion: {this.props.route.params.description}</Text>
+                    <Text style={styles.textoContenido}>Precio: {this.props.route.params.price}</Text>
+                    <Text style={styles.textoContenido}>Existencias: {this.props.route.params.stock}</Text>
+                    <Text style={styles.textoContenido}>Estatus: {this.props.route.params.active}</Text>
+                    <View style={styles.fotoContainer}>
+                        <Image
+                            style={{flex:1, height:"80%",width:"80%", borderRadius:8, margin:10,}}
+                            source={{uri:this.props.route.params.picture}}
+                            // source={require(this.props.route.params.imagen)}
+                        />
+                    </View>
                 </View>
                 <View style={styles.espacioFooter}>
                     <TouchableOpacity 
@@ -137,6 +143,8 @@ const styles = StyleSheet.create({
     },
     espacioProductos:{
         flex: 7,
+        marginVertical:5,
+        marginHorizontal:10,
     },
     espacioFooter:{
         flex:1,
@@ -180,5 +188,16 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent:"center",
         alignContent:"center",
+    },
+    textoContenido:{
+        fontSize: 23,
+        color:"black",
+        margin:2,
+        // flex: 1,
+    },
+    fotoContainer:{
+        flex:7,
+        alignItems:"center",
+        justifyContent:"center",
     }
 })
