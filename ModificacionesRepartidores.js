@@ -36,6 +36,10 @@ export default class ModificacionesRepartidores extends Component {
     const btnClickRegresar = () => {
         this.props.navigation.navigate("Repartidores");
     }
+    
+    const btnClickModificar = () => {
+        this.props.navigation.navigate("Repartidores");
+    }
 
     const btnClickEliminar = () => {
         let _this = this;
@@ -105,6 +109,13 @@ export default class ModificacionesRepartidores extends Component {
                     <TouchableOpacity 
                         style={styles.btnFooter}
                         activeOpacity={0.7}
+                        onPress={btnClickModificar}
+                    >
+                        <Text style={styles.textoFooter}>Modificar</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity 
+                        style={styles.btnFooter}
+                        activeOpacity={0.7}
                         onPress={btnClickEliminar}
                     >
                         <Text style={styles.textoFooter}>Eliminar</Text>
@@ -159,7 +170,7 @@ const styles = StyleSheet.create({
         // borderLeftWidth:1,
     },
     textoFooter:{
-        fontSize:30,
+        fontSize:25,
         fontWeight:"bold",
         color:"#F7F9F9"
     },

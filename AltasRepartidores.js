@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TextInput, Dimensions, SafeAreaView, ImageBackground, TouchableOpacity, Alert } from 'react-native';
+import ImagePicker from 'react-native-image-crop-picker';
 
 export default class AltasRepartidores extends Component {
   constructor(props) {
@@ -21,6 +22,28 @@ export default class AltasRepartidores extends Component {
     const btnClickRegresar = () => {
         this.props.navigation.navigate("Repartidores");
     }
+
+     
+    const btnTomarFoto = () => {
+        ImagePicker.openCamera({
+            width: 300,
+            height: 400,
+            cropping: true,
+          }).then(image => {
+            console.log(image);
+          });
+    }
+    
+    const btnCargarFoto = () => {
+        ImagePicker.openPicker({
+            width: 300,
+            height: 400,
+            cropping: true
+          }).then(image => {
+            console.log(image);
+          });
+    }
+
     const btnClickAgregar = () => {
         let _this = this;
         var xhttp = new XMLHttpRequest();
@@ -60,7 +83,7 @@ export default class AltasRepartidores extends Component {
                 style={styles.background}
             >
                 <View style={styles.espacioTitulo}>
-                    <Text style={styles.textoTitulo}> Altas Tienda </Text>
+                    <Text style={styles.textoTitulo}> Altas Repartidores </Text>
                 </View>
                 
                 <View style={styles.espacioContenido}>
@@ -100,13 +123,20 @@ export default class AltasRepartidores extends Component {
                         // get input and save in var username
                         onChangeText={lastName2 => this.setState({lastName2})}
                     />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Foto"
-                        placeholderTextColor={"black"}
-                        // get input and save in var username
-                        onChangeText={picture => this.setState({picture})}
-                    />
+                    <TouchableOpacity
+                            style={styles.btnPicker}
+                            activeOpacity={0.7}
+                            onPress={btnTomarFoto}
+                    > 
+                        <Text style={styles.textoBoton}> Tomar Foto </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                            style={styles.btnPicker}
+                            activeOpacity={0.7}
+                            onPress={btnCargarFoto}
+                    > 
+                        <Text style={styles.textoBoton}> Subir Foto </Text>
+                    </TouchableOpacity>
                 </View>
 
                 <View style={styles.espacioFooter}>
@@ -180,5 +210,20 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginHorizontal: 30,
         borderRadius: 8,
+    },
+    btnPicker:{
+        width:"50%",
+        height: "12%",
+        alignSelf: "center",
+        marginTop: 20,
+        backgroundColor:"#78D5D7",
+        // borderWidth:2,
+        borderRadius: 8,
+        justifyContent:"center",
+        alignItems:"center",        
+    },textoBoton:{
+        fontSize: 30,
+        color:"#F7F9F9",
+        fontWeight:"bold",
     },
 })

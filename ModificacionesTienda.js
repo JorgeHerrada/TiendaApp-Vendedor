@@ -38,6 +38,10 @@ export default class ModificacionesTienda extends Component {
         this.props.navigation.navigate("Tienda");
     }
 
+    const btnClickModificar = () => {
+        this.props.navigation.navigate("Tienda");
+    }
+
     const btnClickEliminar = () => {
         let _this = this;
         var xhttp = new XMLHttpRequest();
@@ -106,6 +110,13 @@ export default class ModificacionesTienda extends Component {
                     <TouchableOpacity 
                         style={styles.btnFooter}
                         activeOpacity={0.7}
+                        onPress={btnClickModificar}
+                    >
+                        <Text style={styles.textoFooter}>Modificar</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity 
+                        style={styles.btnFooter}
+                        activeOpacity={0.7}
                         onPress={btnClickEliminar}
                     >
                         <Text style={styles.textoFooter}>Eliminar</Text>
@@ -159,25 +170,8 @@ const styles = StyleSheet.create({
         // borderRightWidth:1,
         // borderLeftWidth:1,
     },
-    celdaContainer:{
-        marginHorizontal:20,
-        marginVertical:20,
-        // borderWidth:2,
-        // borderColor:"black",
-        padding:10,
-        borderRadius:15,
-        flex:1,
-        backgroundColor: "#78D5D7",
-        flexDirection:'row',
-    },
-    celda:{
-        fontSize:15,
-        fontFamily:"serif",
-        color:"#F7F9F9",
-        // fontWeight:"bold",
-    },
     textoFooter:{
-        fontSize:30,
+        fontSize:25,
         fontWeight:"bold",
         color:"#F7F9F9"
     },
