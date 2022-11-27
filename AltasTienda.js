@@ -123,14 +123,14 @@ export default class AltasTienda extends Component {
                         onChangeText={active => this.setState({active})}
                     />
                     <TouchableOpacity
-                            style={styles.btnEntrar}
+                            style={styles.btnPicker}
                             activeOpacity={0.7}
                             onPress={btnTomarFoto}
                     > 
                         <Text style={styles.textoBoton}> Tomar Foto </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                            style={styles.btnEntrar}
+                            style={styles.btnPicker}
                             activeOpacity={0.7}
                             onPress={btnCargarFoto}
                     > 
@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 30,
         borderRadius: 8,
     },
-    btnEntrar:{
+    btnPicker:{
         width:"50%",
         height: "12%",
         alignSelf: "center",
