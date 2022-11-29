@@ -14,6 +14,7 @@ import ALTASREPARTIDORES from "./AltasRepartidores";
 import DETALLESPRODUCTO from "./DetallesProducto";
 import DETALLESREPARTIDOR from "./DetallesRepartidor";
 import CAMBIOSREPARTIDOR from "./CambiosRepartidor";
+import CAMBIOSPRODUCTO from "./CambiosProducto";
 
 
 const Stack = createNativeStackNavigator();
@@ -75,6 +76,11 @@ function App() {
         <Stack.Screen 
           name="CambiosRepartidor" 
           component={CAMBIOSREPARTIDOR} 
+          options={{ headerShown: false }} // header wont show
+        />
+        <Stack.Screen 
+          name="CambiosProducto" 
+          component={CAMBIOSPRODUCTO} 
           options={{ headerShown: false }} // header wont show
         />
         

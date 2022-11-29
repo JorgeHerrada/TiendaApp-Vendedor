@@ -39,7 +39,8 @@ export default class ModificacionesTienda extends Component {
     }
 
     const btnClickModificar = () => {
-        this.props.navigation.navigate("Tienda");
+        // this.props.navigation.navigate("Tienda");
+        this.props.navigation.navigate("CambiosProducto",{id:this.props.route.params.id,name:this.props.route.params.name,description:this.props.route.params.description,picture:this.props.route.params.picture,price:this.props.route.params.price,stock:this.props.route.params.stock,active:this.props.route.params.active});
     }
 
     const btnClickEliminar = () => {
@@ -68,7 +69,7 @@ export default class ModificacionesTienda extends Component {
         }
         };
         xhttp.open("GET", "http://tiendapp.freevar.com/tiendappScrips/bajas.php?id=" + _this.props.route.params.id + "&table=products", true);
-        console.log("http://tiendapp.freevar.com/tiendappScrips/bajas.php?id=" + _this.props.route.params.id + "&table=products");
+        // console.log("http://tiendapp.freevar.com/tiendappScrips/bajas.php?id=" + _this.props.route.params.id + "&table=products");
         xhttp.send();
     }
     
