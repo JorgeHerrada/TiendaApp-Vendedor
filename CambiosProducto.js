@@ -240,6 +240,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginHorizontal: 30,
         borderRadius: 8,
+        color:"black",
     },
     btnPicker:{
         width:"50%",
