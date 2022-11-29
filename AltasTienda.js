@@ -41,6 +41,27 @@ export default class AltasTienda extends Component {
           });
     }
 
+    const validacion = () => {
+        if(this.state.name==""||this.state.description==""||this.state.price==""||this.state.stock==""||this.state.active==""){
+            // desplegar alerta
+            Alert.alert(
+                "ERROR",
+                "No puedes dejar campos vacíos. Intenta de nuevo.",
+                [{ text: "OK"}]
+            );
+        }
+        else if(isNaN(this.state.price) || isNaN(this.state.stock || isNaN(this.state.active))){
+            // desplegar alerta
+            Alert.alert(
+                "ERROR",
+                "Ingresa un numero valido para Precio, Existencias y/o Activo. Intenta de nuevo.",
+                [{ text: "OK"}]
+            );
+        }else{
+            btnClickAgregar();
+        }
+    }
+
     const btnClickAgregar = () => {
         let _this = this;
         var xhttp = new XMLHttpRequest();
@@ -149,7 +170,7 @@ export default class AltasTienda extends Component {
                     <TouchableOpacity 
                         style={styles.btnFooter}
                         activeOpacity={0.7}
-                        onPress={btnClickAgregar}
+                        onPress={validacion}
                     >
                         <Text style={styles.textoFooter}>Guardar</Text>
                     </TouchableOpacity>

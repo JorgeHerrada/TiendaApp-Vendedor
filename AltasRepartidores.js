@@ -44,6 +44,19 @@ export default class AltasRepartidores extends Component {
           });
     }
 
+    const validacion = () => {
+        if(this.state.email==""||this.state.password==""||this.state.name==""||this.state.lastName1==""||this.state.lastName2==""){
+            // desplegar alerta
+            Alert.alert(
+                "ERROR",
+                "No puedes dejar campos vacíos. Intenta de nuevo.",
+                [{ text: "OK"}]
+            );
+        }else{
+            btnClickAgregar();
+        }
+    }
+
     const btnClickAgregar = () => {
         let _this = this;
         var xhttp = new XMLHttpRequest();
@@ -150,7 +163,7 @@ export default class AltasRepartidores extends Component {
                     <TouchableOpacity 
                         style={styles.btnFooter}
                         activeOpacity={0.7}
-                        onPress={btnClickAgregar}
+                        onPress={validacion}
                     >
                         <Text style={styles.textoFooter}>Guardar</Text>
                     </TouchableOpacity>
