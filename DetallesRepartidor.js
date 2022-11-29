@@ -17,7 +17,7 @@ import { useNavigation } from '@react-navigation/native';
 import { NavigationContainer } from '@react-navigation/native';
 
 // export default class Login extends Component {
-export default class ModificacionesRepartidores extends Component {
+export default class DetallesRepartidores extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,7 +38,7 @@ export default class ModificacionesRepartidores extends Component {
     }
     
     const btnClickModificar = () => {
-        this.props.navigation.navigate("Repartidores");
+        this.props.navigation.navigate("CambiosRepartidor",{id:this.props.route.params.id,email:this.props.route.params.email,name:this.props.route.params.name,lastName1:this.props.route.params.lastName1,lastName2:this.props.route.params.lastName2,picture:this.props.route.params.picture});
     }
 
     const btnClickEliminar = () => {

@@ -51,7 +51,7 @@ export default class Tienda extends Component {
     const celda = ({item}) => {
         return(
             <TouchableOpacity 
-                onPress={() => this.props.navigation.navigate("ModificacionesTienda",{id:item.id,name:item.name,description:item.description,picture:item.picture,price:item.price,stock:item.stock,active:item.active})}
+                onPress={() => this.props.navigation.navigate("DetallesProducto",{id:item.id,name:item.name,description:item.description,picture:item.picture,price:item.price,stock:item.stock,active:item.active})}
             >
                 <View style={styles.celdaContainer}>
                     <View style={styles.productInfo}>

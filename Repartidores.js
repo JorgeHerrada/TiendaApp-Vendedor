@@ -50,7 +50,7 @@ export default class Repartidores extends Component {
     const celda = ({item}) => {
         return(
             <TouchableOpacity 
-                onPress={() => this.props.navigation.navigate("ModificacionesRepartidores",{id:item.id,email:item.email,name:item.name,lastName1:item.lastName1,lastName2:item.lastName2,picture:item.picture,active:item.active})}
+                onPress={() => this.props.navigation.navigate("DetallesRepartidor",{id:item.id,email:item.email,name:item.name,lastName1:item.lastName1,lastName2:item.lastName2,picture:item.picture,active:item.active})}
                 // onPress={() => this.props.navigation.navigate("ModificacionesRepartidores")}
             >
                 <View style={styles.celdaContainer}>
