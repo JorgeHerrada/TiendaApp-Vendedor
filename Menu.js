@@ -15,6 +15,8 @@ import DETALLESPRODUCTO from "./DetallesProducto";
 import DETALLESREPARTIDOR from "./DetallesRepartidor";
 import CAMBIOSREPARTIDOR from "./CambiosRepartidor";
 import CAMBIOSPRODUCTO from "./CambiosProducto";
+import DETALLESORDEN from "./DetallesOrden";
+import DetallesOrden from './DetallesOrden';
 
 
 const Stack = createNativeStackNavigator();
@@ -81,6 +83,11 @@ function App() {
         <Stack.Screen 
           name="CambiosProducto" 
           component={CAMBIOSPRODUCTO} 
+          options={{ headerShown: false }} // header wont show
+        />
+        <Stack.Screen 
+          name="DetallesOrden" 
+          component={DetallesOrden} 
           options={{ headerShown: false }} // header wont show
         />
         

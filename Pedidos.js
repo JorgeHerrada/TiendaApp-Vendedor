@@ -50,7 +50,8 @@ export default class Pedidos extends Component {
         return(
           <View style={styles.celdaContainer}>
             <TouchableOpacity 
-                // onPress={() => getItem(item.id,item.nombre,item.codigo,item.imagen)}
+                // onPress={() => this.props.navigation.navigate({orderID:item.id})}
+                onPress={() => this.props.navigation.navigate("DetallesOrden",{orderID:item.id})}
             >
                 {/* id,deliveryAddress,nProducts,date,total,userID,courierID */}
                 <Text style={styles.celda}>ID: {item.id}</Text>
