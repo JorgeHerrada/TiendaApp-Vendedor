@@ -101,8 +101,8 @@ export default class DetallesOrden extends Component {
         this.props.navigation.goBack();
     }
 
-    const btnConfirmar = () => {
-        
+    const btnVerMapa = () => {
+        console.warn("Mapa sin implementar.");
     }
 
         
@@ -134,9 +134,9 @@ export default class DetallesOrden extends Component {
                     <TouchableOpacity 
                         style={styles.btnFooter}
                         activeOpacity={0.7}
-                        onPress={btnConfirmar}
+                        onPress={btnVerMapa}
                     >
-                        <Text style={styles.textoFooter}>Confirmar</Text>
+                        <Text style={styles.textoFooter}>Ver Mapa</Text>
                     </TouchableOpacity>
                 </View>
             </ImageBackground> 
