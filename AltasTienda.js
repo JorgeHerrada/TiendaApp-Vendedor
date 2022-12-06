@@ -143,7 +143,14 @@ export default class AltasTienda extends Component {
                         // get input and save in var username
                         onChangeText={active => this.setState({active})}
                     />
-                    <TouchableOpacity
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Foto URL"
+                        placeholderTextColor={"black"}
+                        // get input and save in var username
+                        onChangeText={picture => this.setState({picture})}
+                    />
+                    {/* <TouchableOpacity
                             style={styles.btnPicker}
                             activeOpacity={0.7}
                             onPress={btnTomarFoto}
@@ -156,7 +163,7 @@ export default class AltasTienda extends Component {
                             onPress={btnCargarFoto}
                     > 
                         <Text style={styles.textoBoton}> Subir Foto </Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                 </View>
 
                 <View style={styles.espacioFooter}>

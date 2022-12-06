@@ -152,8 +152,16 @@ export default class CambiosProducto extends Component {
                         defaultValue={this.props.route.params.active}
                         // get input and save in var username
                         onChangeText={active => this.setState({active})}
+                        />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Foto URL"
+                        placeholderTextColor={"black"}
+                        // get input and save in var username
+                        onChangeText={picture => this.setState({picture})}
+                        defaultValue={this.props.route.params.picture}
                     />
-                    <TouchableOpacity
+                    {/* <TouchableOpacity
                             style={styles.btnPicker}
                             activeOpacity={0.7}
                             onPress={btnTomarFoto}
@@ -166,7 +174,7 @@ export default class CambiosProducto extends Component {
                             onPress={btnCargarFoto}
                     > 
                         <Text style={styles.textoBoton}> Subir Foto </Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                 </View>
 
                 <View style={styles.espacioFooter}>
