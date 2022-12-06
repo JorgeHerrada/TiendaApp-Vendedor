@@ -40,7 +40,7 @@ export default class Pedidos extends Component {
         console.log("JSON recibido");
       }
     };
-    xhttp.open("GET", "http://tiendapp.freevar.com/tiendappScrips/mostrarPedidosActivos.php", true);
+    xhttp.open("GET", "http://tiendapp.freevar.com/tiendappScrips/mostrarTodosPedidos.php", true);
     xhttp.send();
   }
 
@@ -61,6 +61,7 @@ export default class Pedidos extends Component {
                 <Text style={styles.celda}>Total: {item.total}</Text>
                 <Text style={styles.celda}>Usuario: {item.userID}</Text>
                 <Text style={styles.celda}>Repartidor: {item.courierID}</Text>
+                <Text style={styles.celda}>¿Entregado? Sí(1)/No(0): {item.delivered}</Text>
             </TouchableOpacity>
           </View>
         )
