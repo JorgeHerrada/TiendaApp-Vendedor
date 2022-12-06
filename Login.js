@@ -29,21 +29,34 @@ export default class Login extends Component {
   render() {
     // js programming for objects
     const btnClickEntrar = () => {
-        this.props.navigation.navigate("Opciones");
+        if(this.state.username=='1' && this.state.password=='1')
+        {
+            this.props.navigation.navigate("Opciones");
+        }else{
+            badLoginalert();
+        }
+
     }
     const btnClickRegistro = () => {
-        this.props.navigation.navigate("SignIn");
+        Alert.alert(
+            "No hay vacantes",
+            "Solo existe una cuenta de administrador.",
+            [
+                { text: "OK"}
+            ]
+        );
+        // this.props.navigation.navigate("SignIn");
     }
     
     // Display pop up alert 
     const badLoginalert = () =>
-    Alert.alert(
-        "Login invalido",
-        "Los datos introducidos son inválidos, intenta de nuevo.",
-        [
-            { text: "OK"}
-        ]
-    );
+        Alert.alert(
+            "Login invalido",
+            "Los datos introducidos son inválidos, intenta de nuevo.",
+            [
+                { text: "OK"}
+            ]
+        );
     
     
     return (
